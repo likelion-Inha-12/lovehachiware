@@ -1,0 +1,7 @@
+# 데스노트. 이름 적으면 깃허브에 안올라감.
+
+__pycache__
+venv
+db.sqlite3
+migrations
+.DS_Store
