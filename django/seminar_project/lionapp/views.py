@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
 from .models import *
@@ -41,3 +42,10 @@ def delete_post(request, pk):
         }
         return JsonResponse(data, status=200)
     return JsonResponse({'message':'DELETE 요청만 허용됩니다.'})
+
+
+def get_comment(request, post_id):
+    if request.method == 'GET':
+        post = get_object_or_404(Post, pk=post_id)
+        comment_list = post.comments.all()
+        return HttpResponse(comment_list, status=200)
