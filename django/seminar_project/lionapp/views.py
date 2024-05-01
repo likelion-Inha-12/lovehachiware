@@ -2,11 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
-
 from .models import *
-
-import json
-
 
 def create_post (request) :
     if request.method == 'POST':
@@ -44,8 +40,8 @@ def delete_post(request, pk):
     return JsonResponse({'message':'DELETE 요청만 허용됩니다.'})
 
 
-def get_comment(request, post_id):
+def get_comment(request, post_id):   #post에 대한 comment 가져오는 api
     if request.method == 'GET':
         post = get_object_or_404(Post, pk=post_id)
-        comment_list = post.comments.all()
-        return HttpResponse(comment_list, status=200)
+        comment_list = post.commentss.all()
+        return HttpResponse(comment_list, status=200) #200 - 서버가 요청을 제대로 처리했다는 뜻
