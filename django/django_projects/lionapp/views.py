@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.views import APIView
-from lovehachiware.django.django_projects.lionapp.serializers import PostSerializer
+from .serializers import PostSerializer
 from .models import *
 from rest_framework.response import Response
 import json
@@ -68,7 +68,7 @@ def create_post_v2(request):
     post.save()
 
     message = f"id: {post.pk}번 포스트 생성 성공이다욧"
-    return api_response(data = None,message = message, status = status.HTTP_201_CCREATED)
+    return api_response(data = None,message = message, status = status.HTTP_201_CREATED)
 
 class PostApiView(APIView):
 
@@ -88,4 +88,4 @@ class PostApiView(APIView):
         post.delete()
         
         message = f"id: {pk}번 포스트 삭제 성공"
-        return api_response(message = message, status = status.HTTP_200_OK)
+        return api_response(data = None, message = message, status = status.HTTP_200_OK)
