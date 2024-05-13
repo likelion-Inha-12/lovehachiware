@@ -14,7 +14,6 @@ class Member(models.Model):
 
 class Post(models.Model):
     id = models.AutoField(primary_key= True)  #pk인 아이디를 가집니다.
-    member = models.ForeignKey(Member,on_delete=models.CASCADE)  # 작성자 표시를 위해 member의 id를 fk로 가짐
     title = models.CharField(max_length=50) # 50글자가 최대인 문자열
     content = models.TextField(blank = True,null = True) # 본문 작성, 글자 수 제한이 없는 긴 문자열,null과 blank 허용
     create_at = models.DateTimeField(auto_now_add =True) # 처음 Post 생성시, 현재시간 저장 (언제 작성된 필드인지)

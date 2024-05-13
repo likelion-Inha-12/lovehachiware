@@ -22,5 +22,5 @@ from util import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('health/', include('util.urls')),
-    path('lion/', include('lionapp.urls'))
+    path('lion/', include('lionapp.urls')),
 ]
