@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'lionapp',
     # third party app
     'rest_framework',
+    'corsheader',
     # Basic App
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,6 +55,35 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+#CORS
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_METHODS = [  # 허용할 옵션
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [  # 허용할 헤더
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+CORS_ALLOW_ALL_ORIGINS = [
+    'https://chiikawaworld.o-r.kr/',
 ]
 
 ROOT_URLCONF = 'seminar_project.urls'
@@ -74,7 +105,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'seminar_project.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
