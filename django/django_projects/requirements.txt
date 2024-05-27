@@ -12,3 +12,5 @@ requests==2.31.0
 sqlparse==0.4.4
 urllib3==2.2.1
 virtualenv==20.25.1
+drf-yasg==1.21.7
+setuptools==70.0.0
